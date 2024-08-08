@@ -33,7 +33,7 @@ class AddPonkaToImageHandler implements MessageHandlerInterface
         );
         $this->photoManager->update($imagePost->getFilename(), $updatedContents);
         $imagePost->markAsPonkaAdded();
-        
+        $this->entityManager->persist($imagePost);
         $this->entityManager->flush();
     }
 }
